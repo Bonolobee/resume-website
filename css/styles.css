@@ -1,0 +1,225 @@
+/* Basic reset and type */
+:root{
+  --bg: #FAFBFA; /*Lightgray/ off-white */
+   /* ...other variables */
+  --card: #FFFFFF;
+  --muted: #6B6B6B;
+  --accent: #2E6E5B;
+  --tag-bg: #ECF4F1;
+  --radius: 12px;
+  --max-width: 980px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    /* ... other styles */
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+  margin:0; background:var(--bg); color:#111; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; /* ... other styles */
+}
+.container{max-width:var(--max-width); margin:32px auto; padding:24px}
+.header .intro{display:flex;gap:20px;align-items:center}
+.profile-img{width:144px;height:144px;border-radius:24px;object-fit:cover;flex-shrink:0;border:4px solid rgba(46,110,91,0.06)}
+.name{margin:0;font-size:28px}
+.summary{margin:6px 0 0;color:var(--muted);max-width:680px}
+
+section{margin-top:28px}
+section h2{margin:0 0 12px 0;font-size:18px}
+
+/* Proficiency */
+.skill-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.skill-row span{width:110px}
+.bar{background:rgba(0,0,0,0.06);height:12px;border-radius:8px;flex:1;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,var(--accent),#3FA07E);border-radius:8px}
+
+/* Tags */
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{background:var(--tag-bg);padding:8px 14px;border-radius:6px;font-size:14px}
+
+/* Projects */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.project-card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.project-card .project-year{font-size:12px;color:var(--muted)}
+.project-card.featured{background:var(--accent);color:#fff}
+.project-card.featured .tech{opacity:0.9}
+.project-card h3{margin:8px 0}
+.project-card h3 a{color:inherit;text-decoration:none;transition:opacity 0.2s}
+.project-card h3 a:hover{opacity:0.7}
+.project-card.featured h3 a{color:#fff}
+.tech{font-size:13px;color:var(--muted);margin-top:8px}
+/* Star Styling for Project Cards */
+.project-card.star-project {
+  position: relative; /* Needed to absolutely position the star */
+  overflow: hidden; /* Ensures the star doesn't overflow if too big */
+}
+
+.project-card.star-project::before {
+  content: "⭐"; /* The star emoji. You can also use '★' for an outlined star, or an SVG */
+  font-size: 2em; /* Adjust size as needed */
+  position: absolute;
+  top: 10px;    /* Distance from the top */
+  right: 10px;  /* Distance from the right */
+  /* If you want it on the left: left: 10px; */
+
+  /* Optional: Rotate the star slightly for a dynamic look */
+  transform: rotate(15deg);
+  
+  /* Optional: Make the star color slightly less intense if it's an emoji and you want it muted */
+  opacity: 0.8; 
+}
+
+
+/* Cards */
+.card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+/* --- Overall Layout Styling --- */
+
+.tools-section {
+    /* To mimic the mobile view in your picture */
+    max-width: 400px; 
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.tools-section h2 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333; /* Dark text color */
+}
+
+.tools-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between the category cards */
+}
+
+/* --- Category Card Styling (The main rounded box) --- */
+
+.category-card {
+    background-color: #eef3f6; /* Light gray/off-white background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 20px 15px;
+    position: relative;
+    /* Optional: Subtle box shadow to lift it off the background */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Category Title Styling (The black pill) --- */
+
+.category-title {
+    background-color: #333; /* Dark background */
+    color: white;
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 500;
+    text-transform: lowercase;
+    position: absolute;
+    top: -10px; /* Moves the pill outside the card */
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* --- Tool Icons Grid Styling --- */
+
+.tool-icons-grid {
+    display: grid;
+    /* Create 2 columns, adjusting based on the number of icons you have */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    margin-top: 15px; /* Space below the category pill */
+}
+
+/* --- Individual Tool Icon Styling --- */
+
+.tool-icon {
+    /* This creates the little rounded box for each icon */
+    background-color: white; 
+    border-radius: 15px;
+    height: 70px; /* Fixed height for a square/rectangular look */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7em;
+    font-weight: 600;
+    color: #555;
+    /* You would replace this background with an SVG/Image */
+}
+/* --- Example: Applying specific background colors for a better look --- */
+
+.tool-icon.html { background-color: #f7e6e0; } /* Light red */
+.tool-icon.css { background-color: #e0e9f7; } /* Light blue */
+.tool-icon.react { background-color: #e0f7f7; } /* Light cyan */
+.tool-icon.js { background-color: #f7f7e0; } /* Light yellow */
+.tool-icon.figma { background-color: #fae0f7; } /* Light pink/purple */
+.tool-icon.git { background-color: #e3e0f7; } /* Light purple */
+/* Tools */
+.tools-grid{display:flex;gap:10px;flex-wrap:wrap}
+.tool{background:var(--card);padding:8px 12px;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+
+.footer{margin-top:28px;padding:12px;text-align:center;color:var(--muted)}
+.footer a{color:var(--accent);text-decoration:none}
+
+/* Responsive */
+@media (max-width: 900px){
+  .projects-grid{grid-template-columns:repeat(2,1fr)} /* changes from 3 columns */
+  .name{font-size:24px}
+}
+@media (max-width: 640px){
+  .container{padding:16px}
+  .header .intro{flex-direction:column;align-items:center;text-align:center}
+  .profile-img{width:120px;height:120px}
+  .projects-grid{grid-template-columns:1fr} /* single column */
+  .skill-row span{width:90px}
+}
+/* --- Footer Container Styling --- */
+
+.footer {
+    /* Set the background and color */
+    background-color: #ff5722; /* A vibrant orange color */
+    color: white; /* All text should be white */
+    
+    /* Apply the rounded corners, specifically to the top-right and top-left */
+    border-radius: 30px 30px 0 0; 
+    
+    /* Adjust padding for the wide, rounded look */
+    padding: 30px 20px; 
+    
+    /* Center text content */
+    text-align: center;
+    
+    /* Ensure it spans the full width of the container/page */
+    width: 100%;
+    box-sizing: border-box; /* Include padding in the element's total width/height */
+}
+
+/* --- Call-to-Action Text Styling (The large line) --- */
+
+.footer h1 {
+    font-size: 1.5em; /* Make the text large and dominant */
+    font-weight: 600; /* Semi-bold */
+    margin-bottom: 20px; /* Space between the two lines of text */
+}
+
+/* --- Contact Info Styling (The smaller line) --- */
+
+.footer .contact-info {
+    font-size: 0.85em; /* Smaller font size */
+    font-weight: 400;
+    margin: 0;
+}
+
+/* --- Styling for the Links within the Contact Info --- */
+
+.footer .contact-info a {
+    color: white; /* Ensure links stay white */
+    text-decoration: none; /* Remove underlines for a cleaner look */
+    /* Add some spacing around the separators (pipe '|') */
+    padding: 0 5px; 
+}
+
+.footer .contact-info a:hover {
+    text-decoration: underline; /* Add underline only on hover */
+}
